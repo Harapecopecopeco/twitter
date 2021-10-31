@@ -18,3 +18,28 @@ Tweepyは4年前自然言語処理でたくさん触ったので自信はある�
 
 ## Twitter API for Python
 
+### Setup 
+
+#### Python virtual environment
+
+```shell
+
+python3 -m venv venv
+source venv/bin/activate
+
+```
+
+### Requirements
+
+
+`requirements.txt`
+```text:requirements.txt
+
+twitter
+
+```
+
+### API Doc
+
+旧Tweepy: https://docs.tweepy.org/en/v3.5.0/api.html
+新Twitter: 
