@@ -32,12 +32,27 @@ source venv/bin/activate
 ### Requirements
 
 
-`requirements.txt`
+#### 1. Create `requirements.txt`
 ```text:requirements.txt
 
 twitter
+python-dotenv
+dash
 
 ```
+
+#### 2. Create `.env` for secret twitter token
+
+```ENV
+
+CONSUMER_KEY=YourConsumerToken
+CONSUMER_SECRET_KEY=YourConsumerSecret
+ACCESS_TOKEN=YourAccessToken
+ACCESS_TOKEN_SECRET=YourSecretToken
+
+```
+
+
 
 ### API Doc
 
