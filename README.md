@@ -29,10 +29,9 @@ source venv/bin/activate
 
 ```
 
-### Requirements
-
-
 #### 1. Create `requirements.txt`
+
+`requirements.txt`
 ```text:requirements.txt
 
 twitter
@@ -43,6 +42,7 @@ dash
 
 #### 2. Create `.env` for secret twitter token
 
+`.env`
 ```ENV
 
 CONSUMER_KEY=YourConsumerToken
@@ -52,9 +52,25 @@ ACCESS_TOKEN_SECRET=YourSecretToken
 
 ```
 
-
-
 ### API Doc
 
-旧Tweepy: https://docs.tweepy.org/en/v3.5.0/api.html
-新Twitter: 
+Twitter APIはいくつか種類がある。
+
+1. 
+
+旧Tweepy: https://docs.tweepy.org/en/v3.5.0/api.html  
+新Twitter: https://pypi.org/project/twitter/
+
+基本的には、Twitter社が提供するHTTP通信（REST）を使ってAPIを使用することになる。  
+
+
+## Usage
+
+### Get timeline
+
+タイムラインを取得する
+
+```python
+from twiiter_client import client # 自作ライブラリ
+
+```

@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv(verbose=True)
 
-twitter_client = Twitter(
+client = Twitter(
     auth=OAuth(
         token=os.getenv("ACCESS_TOKEN"),
         token_secret=os.getenv("ACCESS_TOKEN_SECRET"),
@@ -16,5 +16,9 @@ twitter_client = Twitter(
     )
 )
 
+class TwitterClient:
 
-
+    @classmethod
+    def get_follower(cls, count:int, base_id:str):
+    """ Get
+    """
