@@ -37,10 +37,19 @@ source venv/bin/activate
 twitter
 python-dotenv
 dash
+pandas
+pylint
+django
+flask_cors
+requests_oauthlib
+requests
+oauthlib
 
 ```
 
 #### 2. Create `.env` for secret twitter token
+
+Create the .env file in the root directory.
 
 `.env`
 ```ENV
@@ -54,23 +63,62 @@ ACCESS_TOKEN_SECRET=YourSecretToken
 
 ### API Doc
 
-Twitter APIはいくつか種類がある。
-
-1. 
-
-旧Tweepy: https://docs.tweepy.org/en/v3.5.0/api.html  
-新Twitter: https://pypi.org/project/twitter/
-
-基本的には、Twitter社が提供するHTTP通信（REST）を使ってAPIを使用することになる。  
-
-
 ## Usage
+
+`working tree`
+```shell
+
+>> pwd
+/home/harapeco/go/src/github.com/Harapecopecopeco/twitter/twitter
+
+>> tree
+.
+├── __init__.py
+├── __pycache__
+│   └── twiiter_client.cpython-39.pyc
+├── error
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-39.pyc
+│   │   ├── errors.cpython-39.pyc
+│   │   └── query.cpython-39.pyc
+│   ├── errors.py
+│   ├── http.py
+│   └── query.py
+├── main.py
+├── output.json
+└── twiiter_client.py
+
+
+```
 
 ### Get timeline
 
-タイムラインを取得する
+screen_name をTwitterのIDに書き換え、root ディレクトリ
 
-```python
-from twiiter_client import client # 自作ライブラリ
+`main.py`
+```python:main.py
+
+from twiiter_client import TwitterClient
+from datetime import date
+from pprint import pprint
+
+today = date.today()
+
+screen_name = "shoku_pan_pan"
+request_count = 5
+client = TwitterClient(dt=today, screen_name=screen_name)
+
+# Get Tweets by user ids
+query = client.tweets(count=request_count)
+pprint(query)
+
+```
+
+
+`Command Line`
+```shell
+
+>> python main.py 
 
 ```

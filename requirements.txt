@@ -2,3 +2,9 @@ twitter
 python-dotenv
 dash
 pandas
+pylint
+django
+flask_cors
+requests_oauthlib
+requests
+oauthlib
