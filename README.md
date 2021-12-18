@@ -69,8 +69,9 @@ ACCESS_TOKEN_SECRET=YourSecretToken
 ```shell
 
 >> pwd
-/home/harapeco/go/src/github.com/Harapecopecopeco/twitter/twitter
+/home/harapeco/go/src/github.com/Harapecopecopeco/twitter/
 
+>> cd twitter
 >> tree
 .
 ├── __init__.py
