@@ -116,7 +116,7 @@ class TwitterClient:
         else:
             return ""
 
-    def tweets(self, count: int):
+    def get_tweets(self, count: int):
         r""" Retrieve Tweets Object by user ids
 
         Args:
@@ -131,7 +131,32 @@ class TwitterClient:
         """
 
         if self.user_id:
-            url = f"{self.base_url}/users/{self.user_id}/tweets?max"
+            url = f"{self.base_url}/users/{self.user_id}/tweets"
             return requests.get(url=url, auth=self.auth).json()
+        else:
+            return ""
+
+    def get_likes_by_user(self, count: int):
+        r""" Retrieve Likes Object by user id
+
+        Args:
+            count (int): API Call Limits.
+
+        Returns:
+            Tweet Object (dict): TBD.
+
+        References:
+            Twitter API v2 Document:
+            - https://developer.twitter.com/en/docs/twitter-api/users/lookup/api-reference/get-users-id
+        """
+
+        if self.user_id:
+            max_result = f"max_results={count}"
+            query_options = f"&expansions=attachments.media_keys"
+            url = f"{self.base_url}/users/{self.user_id}/liked_tweets?"
+            return requests.get(
+                url=url + max_result + query_options,
+                auth=self.auth
+            ).json()
         else:
             return ""
