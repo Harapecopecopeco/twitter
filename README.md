@@ -93,9 +93,16 @@ ACCESS_TOKEN_SECRET=YourSecretToken
 
 ```
 
-### Get timeline
+### Get Tweets by screen name
 
-screen_name をTwitterのIDに書き換え、root ディレクトリ
+screen_name をTwitterのIDに書き換え、root ディレクトリで実行
+
+`Command Line`
+```shell
+>> python main.py 
+```
+
+cf. 
 
 `main.py`
 ```python:main.py
@@ -113,13 +120,5 @@ client = TwitterClient(dt=today, screen_name=screen_name)
 # Get Tweets by user ids
 query = client.tweets(count=request_count)
 pprint(query)
-
-```
-
-
-`Command Line`
-```shell
-
->> python main.py 
 
 ```
