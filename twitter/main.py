@@ -4,7 +4,7 @@ from pprint import pprint
 
 today = date.today()
 
-screen_name = "panicyusuke"
+screen_name = "shoku_pan_pan"
 request_count = 5
 client = TwitterClient(dt=today, screen_name=screen_name)
 

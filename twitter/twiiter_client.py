@@ -152,11 +152,44 @@ class TwitterClient:
 
         if self.user_id:
             max_result = f"max_results={count}"
-            query_options = f"&expansions=attachments.media_keys"
+            query_options = f"&tweet.fields=created_at"
+
             url = f"{self.base_url}/users/{self.user_id}/liked_tweets?"
-            return requests.get(
+            response = requests.get(
                 url=url + max_result + query_options,
                 auth=self.auth
-            ).json()
+            ).json().get("data")
+            if response:
+                return [{
+                    "created_at": data.get("created_at"),
+                    "tweet_id": data.get("id"),
+                    "text": data.get("text")
+                } for data in response]
+            else:
+                return {"data": "Nothing"}
+
+    def get_timeline(self, count: int):
+        r""" Retrieve Tweets Object by user ids
+
+        Args:
+            count (int): API Call Limits.
+
+        Returns:
+            Tweet Object (dict): TBD.
+
+        References:
+            Twitter API v2 Document:
+            - https://developer.twitter.com/en/docs/twitter-api/users/lookup/api-reference/get-users-id
+        """
+
+        if self.user_id:
+            url = f"{self.base_url}/users/{self.user_id}/tweets"
+            response = requests.get(url=url, auth=self.auth).json().get("data")
+            if response:
+                return [{
+                    "created_at": response.get("created_at")
+                } for data in response]
+            else:
+                return {"data": "Nothing"}
         else:
             return ""
